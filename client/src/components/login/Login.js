@@ -10,8 +10,7 @@ const Login = () => {
 
   const [isLogin, setLogin] = useState(true)
 
-  const toggleLogin = () => setLogin(false)
-  const toggleisLogin = () => setLogin(true)
+  const toggleLogin = () => setLogin((prev) => !prev)
 
   return (
     <div id='section' >
@@ -27,12 +26,12 @@ const Login = () => {
             <div className='input_container'>
             <BsEnvelopeCheck />
             <h4>Email :</h4>
-            <input type="text" className="input-field" placeholder="Enter your email" /> {/* Corrected class attribute */}
+            <input type="text" className="input-field" placeholder="Enter your email" required /> {/* Corrected class attribute */}
             </div>
             <div className='input_container2'>
             <IoLockClosedOutline />
             <h4 style={{'marginRight': '5px'}}>Password :</h4>
-            <input style={{'marginLeft': '4px'}} type="text" className="input-field" placeholder="Enter your Password" /> {/* Corrected class attribute */}
+            <input style={{'marginLeft': '4px'}} type="text" className="input-field" placeholder="Enter your Password" required /> {/* Corrected class attribute */}
           </div>
           </div>
           <button >Login</button>
@@ -50,27 +49,27 @@ const Login = () => {
             <div className='input_container1'>
             <FaRegUser />
             <h4 style={{'marginRight': '5px'}}>Username :</h4>
-            <input style={{'marginLeft': '4px'}} type="text" className="input-field" placeholder="Enter your username" /> {/* Corrected class attribute */}
+            <input style={{'marginLeft': '4px'}} type="text" className="input-field" placeholder="Enter your username" required /> {/* Corrected class attribute */}
             </div>
             <div className='input_container2'>
             <BsEnvelopeCheck />
             <h4>Email :</h4>
-            <input type="text" className="input-field" placeholder="Enter your email" /> {/* Corrected class attribute */}
+            <input type="text" className="input-field" placeholder="Enter your email" required /> {/* Corrected class attribute */}
             </div>
             <div className='input_container2'>
             <IoLockClosedOutline />
             <h4 style={{'marginRight': '5px'}}>Password :</h4>
-            <input style={{'marginLeft': '4px'}} type="text" className="input-field" placeholder="Enter your Password" /> {/* Corrected class attribute */}
+            <input style={{'marginLeft': '4px'}} type="text" className="input-field" placeholder="Enter your Password" required /> {/* Corrected class attribute */}
           </div>
             <div className='input_container2'>
             <TbLockCog />
             <h4 style={{'marginRight': '5px'}}>Password :</h4>
-            <input style={{'marginLeft': '4px'}} type="text" className="input-field" placeholder="confirm password" /> {/* Corrected class attribute */}
+            <input style={{'marginLeft': '4px'}} type="text" className="input-field" placeholder="confirm password" required /> {/* Corrected class attribute */}
           </div>
           </div>
-          <button onClick={toggleLogin}>Register</button>
+          <button>Register</button>
           <div className='line'>Already have account?</div>
-          <button className='button' style={{marginTop: '10px', marginBottom: '5px'}} onClick={toggleisLogin}>Login</button>
+          <button className='button' style={{marginTop: '10px', marginBottom: '5px'}} onClick={toggleLogin}>Login</button>
          
           </>
           )}
