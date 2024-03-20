@@ -1,103 +1,173 @@
-.login_container{
-    width: 40%;
-    max-width: 50%;
-    height: 90%;
-    border-radius: 20px;
-    background: rgba(0, 0, 0, 0);
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    display: flex;
+.login_container {
+  width: 30%; 
+  max-width: 100%;
+  height: 80%;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.line {
+  border-top: 3px solid #0b4050;
+  margin-top: 10px;
+  width: 80%;
+  max-width: 80%;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+
+.loginform{
+  display: flex;
     flex-direction: column;
-    align-items: center;   
+    align-items: center;
+    margin: auto;
+    padding: 2vmax;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 40vh;
 }
-.login{
-    padding: 40px;
+.loginform > div{
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
-h1{
-    color: #fff;
-    font-size: 2.5rem;
-    font-weight: 400;
-}
-.line{
-    border-top: 3px solid #0b4050;
-    margin-top: 20px;
-    width: 80%;
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 1rem;
-}
-.input-field {
-    width: 300px; 
-    padding: 18px 0px 18px 0px;
-    font-size: 16px;
-    background: none;
-    border: 0px;
-    border-bottom: 1px solid #0b4050;
-    color: #fff;
-    margin-left: 40px;
-  }
-  .input-field::placeholder{
-    color: #fff;
-  }
-  .input-field:focus {
+.loginform > div >input {
+    padding: 1vmax 4vmax;
+    padding-right: 1vmax;
+    width: 100%;
+    font: 300 0.9vmax cursive;
     outline: none;
-  }
-  .lower_input{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 18%;
-    padding-bottom: 12%;
-}
-.lower_input1{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 5%;
-    padding-bottom: 8%;
-  }
-  .input_container{
-    display: flex;
-    align-items: center;
+    background: none;
+    border: none;
     
-  }
-  .input_container1{
-    display: flex;
-    align-items: center;
-    padding-top: 0;
-  }
-  .input_container2{
-    display: flex;
-    align-items: center;
-    padding-top: 10%;
-  }
-  h4{
-    color: #fff;
-    font-weight: 600;
-  }
-svg{
-    margin-right: 8px;
-    font-weight: 600;
+}
+.loginform > div >input::placeholder{
+  color: #000;
+}
+svg {
+  position: absolute;
+    transform: translateX(1vmax);
+    font-size: 1.2vmax;
+    color: #000;
+}
+.loginForm > a {
+  color: #000;
+  text-decoration: none;
+  align-self: flex-end;
+  transition: all 0.5s;
+  font: 500 0.8vmax "Gill Sans";
+}
+.loginForm > a:hover {
+  color: black;
+}
+
+.button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 button{
-    background-color: #0b4050f8;
-    opacity: 0.4;
-    color: #fff;
-    width: 30%;
-    border-radius: 40px;
-    height: 8%;
-    font-size: 1.5rem;
-    cursor: pointer;
+  border-radius: 40px;
+  background-color: #0b4050;
+  color: #fff;
+  width: 30%;
+  height: 40px;
+  cursor: pointer;
 }
 button:hover{
-    opacity:1;
+  background-color: #0b4050bb;
 }
-.last_lower{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+h3{
+  font-size: 1rem;
 }
-p{
-    color: #fff;
-    font-size: 1.5rem;
+
+
+
+.avatarSelection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatarSelection input[type="file"] {
+  display: none;
+}
+
+.avatarSelection label {
+  color: #000;
+  padding: 12px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.avatarPreview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #0000009c;
+  overflow: hidden;
+}
+
+.avatarPreview img {
+  width: 100%;
+  height: 100%; 
+  object-fit: cover;
+}
+
+@media screen and (max-width: 576px) {
+  .avatarPreview {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .login_container{
+
+    width: 60%;
+  }
+  button{
+    width: 50%;
+  }
+  .container{
+    width: 100%;
+    height: 100%;
+  }
+
+
+}
+@media screen and (min-width: 820px) {
+  .login_container{
+    width: 70%;
+  }
+
+}
+@media screen and (max-width: 768px) {
+  .login_container{
+    width: 80%;
+  }
+  .loginform{
+    padding: 0;
+    width: 20vh;
+  }
+  .avatarPreview {
+    width: 80px;
+    height: 80px;
+  }
+  h3{
+    font-size: 0.8rem;
+  }
+
+}
+@media screen and (max-width: 500px) {
+  .login_container{
+    width: 90%;
+  }
 }

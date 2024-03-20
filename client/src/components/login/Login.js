@@ -4,76 +4,120 @@ import { BsEnvelopeCheck } from "react-icons/bs";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { TbLockCog } from "react-icons/tb";
+import blank from '../assets/R.png'
 
 
 const Login = () => {
 
   const [isLogin, setLogin] = useState(true)
+  const [avatar, setAvatar] = useState(null);
 
-  const toggleLogin = () => setLogin((prev) => !prev)
+  const toggleLogin = (e) => {
+    e.preventDefault();
+    setLogin((prev) => !prev)
+  }
+  const handleAvatarChange = (e) => {
+    const file = e.target.files[0];
+    setAvatar(file);
+  };
 
   return (
     <div id='section' >
       <div className='container'>
         <div className='login_container'>
+            <form className='loginform'>
           {isLogin ? (
             <>
-          <div className='login'>
-            <h1>Login</h1>
+          <h1>Login</h1>
+          <div className='line'></div>
+          <div className='loginUser'>
+          <FaRegUser/>
+          <input
+            type="text"
+            placeholder="Email"
+            required
+            // value={username}
+            // onChange={(e) => setUsername(e.target.value)}
+          />
+          </div>
+          <div className='loginPass'>
+          <IoLockClosedOutline/>
+          <input
+            type="text"
+            placeholder="Password"
+            required
+            // value={username}
+            // onChange={(e) => setUsername(e.target.value)}
+          />
+          </div>
+
+          <div className='button'>
+            <button>Login</button>
           </div>
           <div className='line'></div>
-          <div className='lower_input'>
-            <div className='input_container'>
-            <BsEnvelopeCheck />
-            <h4>Email :</h4>
-            <input type="text" className="input-field" placeholder="Enter your email" required /> {/* Corrected class attribute */}
-            </div>
-            <div className='input_container2'>
-            <IoLockClosedOutline />
-            <h4 style={{'marginRight': '5px'}}>Password :</h4>
-            <input style={{'marginLeft': '4px'}} type="text" className="input-field" placeholder="Enter your Password" required /> {/* Corrected class attribute */}
+          <h3>create account</h3>
+          <div className='button'>
+            <button  onClick={toggleLogin}>Register</button>
           </div>
-          </div>
-          <button >Login</button>
-          <div className='line'>create account</div>
-          <button className='button' style={{marginTop: '10px'}} onClick={toggleLogin}>Register</button>
-         
           </>
           ) : (
             <>
-            <div className='login'>
             <h1>Register</h1>
+            <div className='line'></div>
+            <div className='avatarSelection'>
+                  <div className='avatarPreview'>
+                    <img src={avatar ? URL.createObjectURL(avatar) : blank} alt="Avatar" />
+                  </div>
+                  <input
+                  id='avatar'
+                    type="file"
+                    accept="image/*"
+                    onChange={handleAvatarChange}
+                  />
+                  <label htmlFor="avatar">Upload Avatar</label>
+                </div>
+          <div className='loginUser'>
+          <FaRegUser/>
+          <input
+            type="text"
+            placeholder="Email"
+            required
+            // value={username}
+            // onChange={(e) => setUsername(e.target.value)}
+          />
+          </div>
+          <div className='loginEmail'>
+          <IoLockClosedOutline/>
+          <input
+            type="text"
+            placeholder="Email"
+            required
+            // value={username}
+            // onChange={(e) => setUsername(e.target.value)}
+          />
+          </div>
+          <div className='loginPass'>
+          <IoLockClosedOutline/>
+          <input
+            type="text"
+            placeholder="Password"
+            required
+            // value={username}
+            // onChange={(e) => setUsername(e.target.value)}
+          />
+          </div>
+
+          <div className='button' style={{paddingTop: '40px'}}>
+            <button>Registers</button>
           </div>
           <div className='line'></div>
-          <div className='lower_input1'>
-            <div className='input_container1'>
-            <FaRegUser />
-            <h4 style={{'marginRight': '5px'}}>Username :</h4>
-            <input style={{'marginLeft': '4px'}} type="text" className="input-field" placeholder="Enter your username" required /> {/* Corrected class attribute */}
-            </div>
-            <div className='input_container2'>
-            <BsEnvelopeCheck />
-            <h4>Email :</h4>
-            <input type="text" className="input-field" placeholder="Enter your email" required /> {/* Corrected class attribute */}
-            </div>
-            <div className='input_container2'>
-            <IoLockClosedOutline />
-            <h4 style={{'marginRight': '5px'}}>Password :</h4>
-            <input style={{'marginLeft': '4px'}} type="text" className="input-field" placeholder="Enter your Password" required /> {/* Corrected class attribute */}
+          <h3>Already have account?</h3>
+          <div className='button' >
+            <button onClick={toggleLogin}>Login</button>
           </div>
-            <div className='input_container2'>
-            <TbLockCog />
-            <h4 style={{'marginRight': '5px'}}>Password :</h4>
-            <input style={{'marginLeft': '4px'}} type="text" className="input-field" placeholder="confirm password" required /> {/* Corrected class attribute */}
-          </div>
-          </div>
-          <button>Register</button>
-          <div className='line'>Already have account?</div>
-          <button className='button' style={{marginTop: '10px', marginBottom: '5px'}} onClick={toggleLogin}>Login</button>
-         
           </>
           )}
-        
+          </form>
         </div>
       </div>
     </div>
