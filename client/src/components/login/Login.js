@@ -20,6 +20,10 @@ const Login = () => {
     const file = e.target.files[0];
     setAvatar(file);
   };
+  const [name, setName] = useState('')
+  const [bio, setBio] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, usePassword] = useState('')
 
   return (
     <div id='section' >
@@ -34,10 +38,10 @@ const Login = () => {
           <FaRegUser/>
           <input
             type="text"
-            placeholder="Email"
+            placeholder="Username"
             required
-            // value={username}
-            // onChange={(e) => setUsername(e.target.value)}
+            value={username.value}
+            onChange={username.changeHandler}
           />
           </div>
           <div className='loginPass'>
@@ -46,8 +50,8 @@ const Login = () => {
             type="text"
             placeholder="Password"
             required
-            // value={username}
-            // onChange={(e) => setUsername(e.target.value)}
+            value={password.value}
+            onChange={password.changeHandler}
           />
           </div>
 
@@ -80,20 +84,30 @@ const Login = () => {
           <FaRegUser/>
           <input
             type="text"
-            placeholder="Email"
+            placeholder="Name"
             required
-            // value={username}
-            // onChange={(e) => setUsername(e.target.value)}
+            value={name.value}
+            onChange={name.changeHandler}
           />
           </div>
           <div className='loginEmail'>
           <IoLockClosedOutline/>
           <input
             type="text"
-            placeholder="Email"
+            placeholder="Bio"
             required
-            // value={username}
-            // onChange={(e) => setUsername(e.target.value)}
+            value={bio.value}
+            onChange={bio.changeHandler}
+          />
+          </div>
+          <div className='loginPass'>
+          <IoLockClosedOutline/>
+          <input
+            type="text"
+            placeholder="Username"
+            required
+            value={username.value}
+            onChange={username.changeHandler}
           />
           </div>
           <div className='loginPass'>
@@ -102,8 +116,8 @@ const Login = () => {
             type="text"
             placeholder="Password"
             required
-            // value={username}
-            // onChange={(e) => setUsername(e.target.value)}
+            value={password.value}
+            onChange={password.changeHandler}
           />
           </div>
 
