@@ -3,8 +3,10 @@ import './login.css';
 import { BsEnvelopeCheck } from "react-icons/bs";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
-import { TbLockCog } from "react-icons/tb";
+import { TbLockCog, TbTextCaption, TbTypography } from "react-icons/tb";
 import blank from '../assets/R.png'
+import {useInputValidation} from '6pp'
+import { usernameValidator } from '../utils/validator';
 
 
 const Login = () => {
@@ -20,10 +22,10 @@ const Login = () => {
     const file = e.target.files[0];
     setAvatar(file);
   };
-  const [name, setName] = useState('')
-  const [bio, setBio] = useState('')
-  const [username, setUsername] = useState('')
-  const [password, usePassword] = useState('')
+  const name = useInputValidation('')
+  const bio = useInputValidation('')
+  const username = useInputValidation('', usernameValidator)
+  const password= useInputValidation('')
 
   return (
     <div id='section' >
@@ -43,6 +45,11 @@ const Login = () => {
             value={username.value}
             onChange={username.changeHandler}
           />
+          {username.error && (
+            <TbTypography color='error' fontVariant={TbTextCaption}>
+              {username.error}
+            </TbTypography>
+          )}
           </div>
           <div className='loginPass'>
           <IoLockClosedOutline/>
