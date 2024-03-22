@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './login.css';
-import { BsEnvelopeCheck } from "react-icons/bs";
+// import { BsEnvelopeCheck } from "react-icons/bs";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
-import { TbLockCog, TbTextCaption, TbTypography } from "react-icons/tb";
+import { TbTextCaption, TbTypography } from "react-icons/tb";
 import blank from '../assets/R.png'
 import {useInputValidation} from '6pp'
 import { usernameValidator } from '../utils/validator';
@@ -13,6 +13,7 @@ const Login = () => {
 
   const [isLogin, setLogin] = useState(true)
   const [avatar, setAvatar] = useState(null);
+  const [isSubmitted, setIsSubmitted] = useState('');
 
   const toggleLogin = (e) => {
     e.preventDefault();
@@ -63,7 +64,7 @@ const Login = () => {
           </div>
 
           <div className='button'>
-            <button>Login</button>
+            <button>{isSubmitted ? 'Log in ✓' : 'Log in...'}</button>
           </div>
           <div className='line'></div>
           <h3>create account</h3>
@@ -129,7 +130,7 @@ const Login = () => {
           </div>
 
           <div className='button' style={{paddingTop: '40px'}}>
-            <button>Registers</button>
+            <button>{isSubmitted ? 'Registered ✓' : 'Register...'}</button>
           </div>
           <div className='line'></div>
           <h3>Already have account?</h3>
